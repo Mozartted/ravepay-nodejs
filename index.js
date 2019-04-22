@@ -18,6 +18,7 @@ var Rave = function (public_key, public_secret, base_url_or_production_flag)
 
 	var ravebase = new base(public_key, public_secret, base_url_or_production_flag);
 
+	this.Base = ravebase;
 	this.Card          = new card(ravebase);
 	this.Status        = new status(ravebase);
 	this.Account       = new account(ravebase);
