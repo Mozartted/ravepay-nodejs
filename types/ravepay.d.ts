@@ -29,7 +29,7 @@ interface Base {
     request: (path: string, data: any, callback?: any) => Promise<any>;
     encrypt: (data: any) => any;
     getIntegrityHash: (data: any) => any;
-    _makeRequest: (requestOptions, callback) => void;
+    _makeRequest: (requestOptions: any, callback?: any) => void;
     _makePromiseRequest: (requestOptions: any) => Promise<any>;
 }
 interface Status {}
@@ -42,6 +42,8 @@ interface MobileOptions {}
 interface Misc {
     getBanks: () => Promise<any>;
     getFee: () => Promise<any>;
+
+    getBanksForTransfer: ( country: string) => Promise<any>;
     disburse: () => Promise<any>;
 }
 interface Preauth {}
