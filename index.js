@@ -1,6 +1,7 @@
 var base     = require('./lib/rave.base'); 
 var card     = require('./lib/rave.card');
 var account  = require('./lib/rave.account');
+var bills    = require('./lib/rave.bills');
 var token  = require('./lib/rave.token');
 var status   = require('./lib/rave.status');
 var mobile   = require('./lib/rave.mobile');
@@ -20,6 +21,7 @@ var Rave = function (public_key, public_secret, base_url_or_production_flag)
 
 	this.Base = ravebase;
 	this.Card          = new card(ravebase);
+	this.Bill          = new bills(ravebase);
 	this.Status        = new status(ravebase);
 	this.Account       = new account(ravebase);
 	this.TokenCharge   = new token(ravebase);

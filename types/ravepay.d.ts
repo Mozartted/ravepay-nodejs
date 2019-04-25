@@ -46,6 +46,11 @@ interface Misc {
     getBanksForTransfer: ( country: string) => Promise<any>;
     disburse: () => Promise<any>;
 }
+
+interface Bill {
+    validate: (data: any) => Promise<any>;
+    getCategories: () => Promise<any>;
+}
 interface Preauth {}
 interface Transfer {
     initiate: ( data: any ) => Promise<any>;
