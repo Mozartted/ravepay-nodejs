@@ -7,6 +7,7 @@ declare class ravepay {
 
     Base: Base
     // someProperty: string[];
+    Bill: Bill
     Card: Card
     Status: Status
     TokenCharge: TokenCharge
@@ -54,6 +55,7 @@ interface Bill {
 interface Preauth {}
 interface Transfer {
     initiate: ( data: any ) => Promise<any>;
+    accountVerification: (data: any) => Promise< any >;
 }
 interface Subaccount {}
 interface Subscription {}

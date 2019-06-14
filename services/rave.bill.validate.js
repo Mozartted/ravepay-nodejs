@@ -9,7 +9,9 @@ var morx = require('morx');
 var q = require('q');
 
 var spec =  morx.spec()  
-				.build('service', 'required:required, eg: bills_validate_CB182_BIL121_45345093051')  
+				.build('Id', 'required:required, eg: bills_validate_CB182_BIL121_45345093051')
+				.build('BillerCode', 'required:required, eg: bills_validate_CB182_BIL121_45345093051')
+				.build('ItemCode', 'required:required, eg: bills_validate_CB182_BIL121_45345093051')
 				.end();
 
 function service(data, _rave){
@@ -17,9 +19,13 @@ function service(data, _rave){
 	var d = q.defer();
 
 	q.fcall( () => {
+		console.log(validated)
 
 		var validated = morx.validate(data, spec, _rave.MORX_DEFAULT);
-		var params = validated.params;
+		var params = {
+			service:  `bills_validate_${validated.ItemCode}_${validated.BillerCode}_${validated.Id}`
+		};
+		// params = validated.params;
 
 		return params; 
 

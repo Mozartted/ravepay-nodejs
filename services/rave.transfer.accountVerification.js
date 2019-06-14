@@ -24,7 +24,7 @@ function service(data, _rave){
 
     })
     .then((_rave) => {
-        _rave.params.seckey = _rave.getSecretKey();
+        // _rave.params.seckey = _rave.getSecretKey();
         _rave.params.PBFPubKey = _rave.getPublicKey();
         return _rave.request('flwv3-pug/getpaidx/api/resolve_account', _rave.params);
     })
