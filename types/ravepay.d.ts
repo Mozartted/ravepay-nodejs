@@ -4,16 +4,29 @@ declare module "ravepay" {
         constructor(PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string);
     
         Base: Base
-        // someProperty: string[];
+        Account: Account
+        Status: Status
         Bill: Bill
         Card: Card
+        Ebills: Ebills
         Status: Status
         TokenCharge: TokenCharge
         Transfer: Transfer
         Misc: Misc
-    
+        Bvn: BVN
+        USSD:USSD
+        VerifyTransaction: VerifyTransaction
         CustomRequest: CustomRequest
-        // myMethod(opts: MyClass.MyClassMethodOptions): number;
+    }
+
+    interface Account {
+        charge: (data:any) => Promise <any>
+        validate: (data:any) => Promise <any>
+    }
+
+    interface Status {
+        requery: (data:any) => Promise <any>
+        xrequery: (data:any) => Promise <any>
     }
     
     interface Card {
@@ -50,7 +63,14 @@ declare module "ravepay" {
         validate: (data: any) => Promise<any>;
         getCategories: () => Promise<any>;
     }
+    interface Ebills {
+        create: (data: any) => Promise<any>
+        update: (data: any) => Promise<any>
+    }
     interface Preauth {}
+    interface BVN {
+        verfication: (data: any) => Promise <any>
+    }
     interface Transfer {
         initiate: ( data: any ) => Promise<any>;
         accountVerification: (data: any) => Promise< any >;
@@ -61,6 +81,12 @@ declare module "ravepay" {
         custom: (path: string, data: any ) => Promise<any>;
     }
     interface Paymentplan {}
+    interface USSD {
+        charge: (data: any) => Promise <any>
+    }
+    interface VerifyTransaction {
+        verify: (data: any) => Promise<any>
+    }
     interface RaveObject {
         Card: Card,
         Status: Status,
