@@ -1,8 +1,12 @@
+import rave from "ravepay"
+
+export = rave
+
+declare const ravepay = (PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string) => ravepay.RavePay
 declare module "ravepay" {
     // export = ravepay;
-    export class ravepay {
-        constructor(PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string);
-    
+    export interface RavePay {
+        (PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string) => ravepay.RavePay
         Base: Base
         Account: Account
         Status: Status
@@ -10,6 +14,10 @@ declare module "ravepay" {
         Card: Card
         Ebills: Ebills
         Status: Status
+        Subaccount: Subaccount
+        Subscription: Subscription
+        Paymentplan: Paymentplan
+        MobileMoney: MobileMoney
         TokenCharge: TokenCharge
         Transfer: Transfer
         Misc: Misc
@@ -49,6 +57,12 @@ declare module "ravepay" {
     interface TokenCharge {
         card: ( data: any ) => Promise<any>;
         account: ( data: any ) => Promise<any>;
+    }
+    interface MobileMoney{
+        mpesa: (data: any) => Promise <any>
+        ghana: (data: any) => Promise <any>
+        mpesa: (data: any) => Promise <any>
+        mpesa: (data: any) => Promise <any>
     }
     interface MobileOptions {}
     interface Misc {
