@@ -6,7 +6,7 @@ declare const ravepay = (PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG
 declare module "ravepay" {
     // export = ravepay;
     export interface RavePay {
-        (PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string) => ravepay.RavePay
+        (PUBLIC_KEY: string, SECRET_KEY: string, PRODUCTION_FLAG?: string): RavePay.RavePay
         Base: Base
         Account: Account
         Status: Status
