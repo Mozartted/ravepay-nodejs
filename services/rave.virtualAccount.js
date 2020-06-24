@@ -8,6 +8,7 @@ var spec = morx.spec()
     .build('frequency', 'required:false, eg:4')
     .build('duration', 'required:false, eg:4')
     .build('narration', 'required:false, eg:transfer')
+    .build('tx_ref', 'required:false')
     .build('amount', 'required:false, eg: 500')
     .end();
 
