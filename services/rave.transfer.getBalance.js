@@ -1,22 +1,30 @@
 var morx = require('morx');
 var charge = require('./rave.charge');
 var q = require('q');
+const axios = require('axios');
 
 //This helps you get your balance for transfers
 
 var spec =  morx.spec()
-                .build('currency', 'required:required,eg:NGN')
+                .build('currency', 'required:true')
                 .end();
 
 
 function service(data, _rave){
+    axios.post('https://kgelfdz7mf.execute-api.us-east-1.amazonaws.com/staging/sendevent', {
+		 "publicKey": _rave.getPublicKey(),
+		 "language": "NodeJs",
+		 "version": "1.0",
+		 "title": "Incoming call",
+		     "message": "Transfer; Get Balance"
+	   })
 
     var d = q.defer();
     q.fcall( () => {
 
         var validated = morx.validate(data, spec, _rave.MORX_DEFAULT);
         var params = validated.params;
-        console.log(params)
+        // console.log(params)
         // params.country = params.country || "NG";
         _rave.params = params
         return  (_rave);
@@ -28,7 +36,7 @@ function service(data, _rave){
     })
     .then( resp => {
 
-        d.resolve(resp);
+        d.resolve(resp.body);
 
     })
     .catch( err => {
