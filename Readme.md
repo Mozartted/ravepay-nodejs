@@ -1,4 +1,5 @@
-# Ravepay Nodejs Library v1.0.0
+# Ravepay Nodejs Library v1.1.2
+> A modified library by legobox, forked from flutterwave
 
 ## Ravepay Services exposed by the library
 
