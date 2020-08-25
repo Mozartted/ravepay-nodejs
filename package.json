@@ -1,5 +1,5 @@
 {
-  "name": "ravepay",
+  "name": "@legobox/ravepay",
   "version": "1.1.2",
   "description": "Official Node library for Rave by Flutterwave",
   "main": "index.js",
@@ -11,11 +11,11 @@
     "flutterwave",
     "ravebyflutterwave"
   ],
-  "author": "4y0, Temi, Flamez, Iyke",
+  "author": "4y0, Temi, Flamez, Iyke, Mozart",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Flutterwave/ravepay-nodejs.git"
+    "url": "git+ssh://git@github.com:Mozartted/ravepay-nodejs.git"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
